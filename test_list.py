@@ -10,7 +10,7 @@ def test_append():
     lst = ListType()
     lst.append('a')
     assert lst.length() == 1
-    assert lst.get(0) == 'wrong value'
+    assert lst.get(0) == 'a'
     lst.append('b')
     assert lst.length() == 2
     assert lst.get(1) == 'b'
