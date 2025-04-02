@@ -3,6 +3,16 @@ from typing import List as PyList, TypeVar, Generic, Optional, Iterable
 
 T = TypeVar('T')
 
+class Node(Generic[T]):
+    """Node for a doubly linked list."""
+    def __init__(self, data: T):
+        self.data: T = data
+        self.next: Optional['Node[T]'] = None
+        self.prev: Optional['Node[T]'] = None
+
+    def __repr__(self) -> str:
+        return f"Node({self.data})"
+
 class ArrayList:
     """Implements a list based on Python's built-in list."""
 
