@@ -25,3 +25,12 @@ class ArrayList:
             if not (0 <= index < self.length()):
                 raise IndexError(f"Index out of range: {index}. List size: {self.length()}")
             return self._data[index]
+
+        class ArrayList:
+            # ... (__init__, length, append, get) ...
+
+            def insert(self, element: str, index: int) -> None:
+                """Inserts an element at the specified index."""
+                if not (0 <= index <= self.length()):
+                    raise IndexError(f"Index out of range: {index}. List size: {self.length()}")
+                self._data.insert(index, element)
