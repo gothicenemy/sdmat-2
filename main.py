@@ -1,10 +1,10 @@
-# main.py
-from list_implementations import ArrayList
+from list_implementations import DoublyLinkedList as CurrentListType
 
 def demonstrate_list_operations():
-    print("--- ArrayList Demonstration ---")
+    # Changed title
+    print("--- DoublyLinkedList Demonstration ---")
 
-    my_list = ArrayList()
+    my_list = CurrentListType()
     print(f"Created empty list: {my_list}, Length: {my_list.length()}")
 
     my_list.append('a')
@@ -17,7 +17,7 @@ def demonstrate_list_operations():
     my_list.insert('y', 0)
     print(f"After insert 'y' at index 0: {my_list}")
     my_list.insert('z', my_list.length())
-    print(f"After insert 'z' at the end (index {my_list.length()-1}): {my_list}")
+    print(f"After insert 'z' at the end (index {my_list.length()}): {my_list}") # Corrected index for print
 
     try:
         my_list.insert('!', -1)
@@ -36,10 +36,10 @@ def demonstrate_list_operations():
     except IndexError as e:
         print(f"Attempt to get at invalid index 100: OK ({e})")
 
-    deleted_element = my_list.delete(1)
+    deleted_element = my_list.delete(1) # Deletes 'x'
     print(f"Deleted element '{deleted_element}' from index 1: {my_list}")
     try:
-        my_list.delete(my_list.length())
+        my_list.delete(my_list.length()) # Invalid index
     except IndexError as e:
         print(f"Attempt to delete at invalid index {my_list.length()}: OK ({e})")
 
@@ -49,8 +49,8 @@ def demonstrate_list_operations():
     print(f"Appended 'a', 'd', 'a': {my_list}")
     my_list.deleteAll('a')
     print(f"After deleteAll 'a': {my_list}")
-    my_list.deleteAll('z')
-    print(f"After deleteAll 'z' (not present): {my_list}")
+    my_list.deleteAll('non_existent') # Element not present
+    print(f"After deleteAll 'non_existent': {my_list}")
 
     my_list.append('b')
     my_list.append('e')
@@ -69,17 +69,18 @@ def demonstrate_list_operations():
     print(f"Clone:    {list_copy}")
     list_copy.append('!')
     print(f"After appending '!' to clone:")
-    print(f"Original: {my_list}")
+    print(f"Original: {my_list}") # Should remain unchanged
     print(f"Clone:    {list_copy}")
 
-    other_list = ArrayList()
+    # Changed instantiation for other_list as well
+    other_list = CurrentListType()
     other_list.append('1')
     other_list.append('2')
     print(f"Current list: {my_list}")
     print(f"Other list: {other_list}")
     my_list.extend(other_list)
     print(f"After extend: {my_list}")
-    other_list.append('3')
+    other_list.append('3') # Modifying other_list should not affect my_list
     print(f"After modifying other list, current list: {my_list}")
 
     print(f"Before clear: {my_list}, Length: {my_list.length()}")
