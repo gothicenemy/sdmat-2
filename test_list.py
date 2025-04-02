@@ -1,6 +1,6 @@
 # test_list.py
 import pytest
-from list_implementations import ArrayList as ListType
+from list_implementations import DoublyLinkedList as ListType
 
 def test_initial_list_is_empty():
     lst = ListType()
